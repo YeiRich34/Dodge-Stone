@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbbbeqqgrcibj"]
+
+[ext_resource type="Script" path="res://Menu/menu.gd" id="1_u75ri"]
+[ext_resource type="FontFile" uid="uid://crkv6ntcfnow6" path="res://resources/Kurland.ttf" id="2_6sl08"]
+[ext_resource type="Texture2D" uid="uid://cbep2n5d5h224" path="res://Main/Logo_Interprice_ToroGames_1.png" id="3_hf1wg"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_vkj2j"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u75ri")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 600.0
+texture = SubResource("ImageTexture_vkj2j")
+
+[node name="LabelTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 10.0
+offset_right = 636.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("2_6sl08")
+theme_override_font_sizes/font_size = 70
+text = "DODGE STONE"
+
+[node name="LabelControls" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 271.0
+offset_right = 487.0
+offset_bottom = 523.0
+theme_override_fonts/font = ExtResource("2_6sl08")
+theme_override_font_sizes/font_size = 30
+text = "W: Up
+S: Down
+A: Left
+D: Right
+F: Shield
+Tip: The shield will appear
+when the bar reaches 100%"
+
+[node name="ButtonStart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 526.0
+offset_right = 557.0
+offset_bottom = 587.0
+theme_override_colors/icon_pressed_color = Color(0.94902, 0.603922, 0.784314, 1)
+theme_override_fonts/font = ExtResource("2_6sl08")
+theme_override_font_sizes/font_size = 50
+text = "PLAY"
+
+[node name="LogoInterpriceToroGames1" type="Sprite2D" parent="."]
+position = Vector2(747.5, 52.5)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("3_hf1wg")
+
+[connection signal="pressed" from="ButtonStart" to="." method="_on_button_start_pressed"]

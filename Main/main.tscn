@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://gpmwofy1ye6d"]
+
+[ext_resource type="Script" path="res://Main/main.gd" id="1_my7x1"]
+[ext_resource type="PackedScene" uid="uid://ch5qqhrxckin3" path="res://Player/player.tscn" id="2_0f0y0"]
+[ext_resource type="FontFile" uid="uid://crkv6ntcfnow6" path="res://resources/Kurland.ttf" id="3_ra7yk"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_342vb"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_my7x1")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 800.0
+offset_bottom = 600.0
+texture = SubResource("ImageTexture_342vb")
+
+[node name="Player" parent="." instance=ExtResource("2_0f0y0")]
+
+[node name="StoneContainer" type="Node2D" parent="."]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 50.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 50.0
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="LabelLives" type="Label" parent="HUD/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ra7yk")
+theme_override_font_sizes/font_size = 29
+text = " LIVES:"
+vertical_alignment = 1
+
+[node name="LabelTime" type="Label" parent="HUD/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ra7yk")
+theme_override_font_sizes/font_size = 29
+text = " TIME: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelLevel" type="Label" parent="HUD/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ra7yk")
+theme_override_font_sizes/font_size = 29
+text = " LEVEL: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 560.0
+offset_right = 557.0
+offset_bottom = 595.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.92549, 0.768627, 1)
+
+[node name="LabelGameOver" type="Label" parent="."]
+visible = false
+offset_left = 238.0
+offset_top = 280.0
+offset_right = 578.0
+offset_bottom = 347.0
+theme_override_fonts/font = ExtResource("3_ra7yk")
+theme_override_font_sizes/font_size = 60
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[connection signal="PickedHeart" from="Player" to="." method="_on_player_picked_heart"]
+[connection signal="ShieldActivated" from="Player" to="." method="_on_player_shield_activated"]
+[connection signal="StoneHitPlayer" from="Player" to="." method="_on_player_stone_hit_player"]

@@ -1,0 +1,67 @@
+[gd_scene load_steps=14 format=3 uid="uid://d4j80e4d2igre"]
+
+[ext_resource type="Script" path="res://Heart/heart.gd" id="1_7flml"]
+[ext_resource type="Texture2D" uid="uid://hqq0p5hewrt" path="res://Heart/slow1.png" id="2_3v0l8"]
+[ext_resource type="Texture2D" uid="uid://c2nuhs264ke17" path="res://Heart/slow2.png" id="3_t6ixi"]
+[ext_resource type="Texture2D" uid="uid://dgwt7s3hy1pkb" path="res://Heart/slow3.png" id="4_a602v"]
+[ext_resource type="Texture2D" uid="uid://bayub1rycblkh" path="res://Heart/slow4.png" id="5_s31n3"]
+[ext_resource type="Texture2D" uid="uid://4phsrbrbbv33" path="res://Heart/slow5.png" id="6_8gwf3"]
+[ext_resource type="Texture2D" uid="uid://vegcxnk4k24d" path="res://Heart/slow6.png" id="7_prm5o"]
+[ext_resource type="Texture2D" uid="uid://cmddro828ncgd" path="res://Heart/slow7.png" id="8_21f7k"]
+[ext_resource type="Texture2D" uid="uid://5n4tmpxtpr6g" path="res://Heart/slow8.png" id="9_el4ug"]
+[ext_resource type="Texture2D" uid="uid://djkhfkai11x6g" path="res://Heart/slow9.png" id="10_6f82q"]
+[ext_resource type="Texture2D" uid="uid://bmpk6hv12vh1v" path="res://Heart/slow10.png" id="11_f5cs0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlgj1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3v0l8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t6ixi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a602v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s31n3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8gwf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_prm5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_21f7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_el4ug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6f82q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_f5cs0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qy3q"]
+radius = 49.163
+
+[node name="Heart" type="Area2D" groups=["heart"]]
+script = ExtResource("1_7flml")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_jlgj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_6qy3q")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
