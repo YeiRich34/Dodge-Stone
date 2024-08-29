@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" path="res://Menu/menu.gd" id="1_u75ri"]
 [ext_resource type="FontFile" uid="uid://crkv6ntcfnow6" path="res://resources/Kurland.ttf" id="2_6sl08"]
+[ext_resource type="Texture2D" uid="uid://dv7si7rgnhpdd" path="res://Menu/BackgroundMenu.png" id="2_w01pc"]
 [ext_resource type="Texture2D" uid="uid://cbep2n5d5h224" path="res://Main/Logo_Interprice_ToroGames_1.png" id="3_hf1wg"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_vkj2j"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -19,7 +18,7 @@ script = ExtResource("1_u75ri")
 layout_mode = 0
 offset_right = 800.0
 offset_bottom = 600.0
-texture = SubResource("ImageTexture_vkj2j")
+texture = ExtResource("2_w01pc")
 
 [node name="LabelTitle" type="Label" parent="."]
 layout_mode = 0
